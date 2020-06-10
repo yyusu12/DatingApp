@@ -24,7 +24,7 @@ login(model: any)
                                  if (user)
    {
      localStorage.setItem('token', user.token);
-     this.decodedToken = this.jwtHelper.decodeToken(user.token);
+     this.decodedToken = this.jwtHelper.decodeToken(user.token); // to decode token and get the payload info
      console.log(this.decodedToken);
    }
   }

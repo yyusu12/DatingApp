@@ -8,11 +8,11 @@
       <button class="btn btn-info btn-lg">Learn more</button>
     </div>
   </div>
-
+<!--adding a childComponent register-->
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <!--[] for input, () for output-->
+        <!--[] for input, () for output & pass the event from the child component-->
        <app-register [valuesFromHome]= "values" (cancelRegister) = "cancelRegisterMode($event)"></app-register>
       </div>
     </div>

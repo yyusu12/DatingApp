@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     }
     );
   }
-
+// going back to home after canceling the registration
   cancelRegisterMode(registerMode: boolean)
   {
     this.registerMode = registerMode;
