@@ -3,7 +3,7 @@ import { CanActivate, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { threadId } from 'worker_threads';
+
 
 @Injectable({
   providedIn: 'root'

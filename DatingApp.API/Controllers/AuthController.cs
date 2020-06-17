@@ -55,7 +55,7 @@ namespace DatingApp.API.Controllers
         public async Task<IActionResult> Login(UserForLogin userForLogin)
         {
 
-            
+            // getting the user from the db through repo
             var userFromRepo = await _repo.Login(userForLogin.Username, userForLogin.Password);
 
             if (userFromRepo == null) return Unauthorized();
@@ -74,7 +74,7 @@ namespace DatingApp.API.Controllers
             //hashing token key   
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
             
-            // passing token header, payload and secret to Tokenwdiscriptor
+            // passing token header, payload and secret to Tokendiscriptor
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
