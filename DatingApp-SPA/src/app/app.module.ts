@@ -10,6 +10,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 
 
+
 // add services in Provider Array
 
 
@@ -30,6 +31,11 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { UserService } from './_services/user.service';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { AuthGuard } from './_guards/auth.guard';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved.guards';
+
 
 
 
@@ -46,7 +52,8 @@ export function tokenGetter()  {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -68,10 +75,13 @@ export function tokenGetter()  {
    ],
    providers: [
       ErrorInterceptorProvider, // adding Angular Global error handling service
-      AuthService,   // adding auth service for log in and log out
+      AuthService,                             // adding auth service for log in and log out
       UserService,
+      AuthGuard,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

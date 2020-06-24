@@ -12,6 +12,7 @@ import { RouterLinkActive, ActivatedRouteSnapshot, ActivatedRoute } from '@angul
 export class MemberListComponent implements OnInit {
 
   Users: User[];
+
   constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
