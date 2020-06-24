@@ -27,10 +27,11 @@ export class NavComponent implements OnInit {
     return this.authService.loggedIn();  // short hand if statement checking to see if user is loggedin by checking if token exists
   }
 
+  // empty the token to logout
   logOut(){
 
     localStorage.removeItem('token');
-    this.alertify.message('logged out');
+    this.alertify.warning('logged out');
     this.router.navigate(['/home']);
   }
 
