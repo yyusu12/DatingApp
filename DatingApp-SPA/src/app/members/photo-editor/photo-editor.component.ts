@@ -51,6 +51,9 @@ export class PhotoEditorComponent implements OnInit {
        dateadded: res.dateadded
       };
       this.photos.push(photo);
+      this.authService.changeMemberPhoto(photo.url);
+      this.authService.currentUser.photoUrl = photo.url;
+      localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
     };
   }
 

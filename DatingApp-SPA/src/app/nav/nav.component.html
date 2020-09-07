@@ -16,7 +16,7 @@
     <!--*ngif is a structural directive that modifies the DOM-->
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
       <span class = "mr-2">
-        <img src="{{photoUrl}}" alt="loggedInUser">
+        <img src="{{photoUrl || '../../../../assets/original.png'}}" alt="loggedInUser">
       </span>
       <a class="dropdown-toggle text-light" dropdownToggle>
       Welcome {{authService.decodedToken?.unique_name | titlecase}}

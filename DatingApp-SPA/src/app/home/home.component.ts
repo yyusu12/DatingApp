@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
   // used to call functions on initiation
   ngOnInit() {
-    this.getValues();
+    //this.getValues();
   }
   // toggle between home and registration
   registerToggle()
@@ -22,14 +22,14 @@ export class HomeComponent implements OnInit {
     this.registerMode = true;
   }
 
-  getValues()
-  {
-    this.http.get('http://localhost:5000/api/values').subscribe(response => {this.values = response; },
-    error => {
-     console.log(error);
-    }
-    );
-  }
+  // getValues()
+  // {
+  //   this.http.get('http://localhost:5000/api/values').subscribe(response => {this.values = response; },
+  //   error => {
+  //    console.log(error);
+  //   }
+  //   );
+  // }
 // going back to home after canceling the registration
   cancelRegisterMode(registerMode: boolean)
   {

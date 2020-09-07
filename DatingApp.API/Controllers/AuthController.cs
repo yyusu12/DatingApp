@@ -41,15 +41,14 @@ namespace DatingApp.API.Controllers
 
             //create user
 
-            var userToCreate = new User
-            {
-                Username = userForRegister.Username
-
-            };
+            var userToCreate = _mapper.Map<User>(userForRegister);
+            
 
             var createdUser = await _repo.Register(userToCreate, userForRegister.Password);
-
-            return StatusCode(201);
+                                        //<destination>(source)
+            var UserToReturn = _mapper.Map<UserForDetailed>(createdUser);
+            // created UserToReturn because we donot want to return createdUser that contains passwords.
+            return CreatedAtRoute("GetUser", new{Controller = "Users", id = createdUser.Id}, UserToReturn);
         }
 
         //User Login

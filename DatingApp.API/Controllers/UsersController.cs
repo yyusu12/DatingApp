@@ -34,13 +34,14 @@ namespace DatingApp.API.Controllers
             var usersToReturn = _mapper.Map<IEnumerable<UserForLists>>(users);
             return Ok(usersToReturn);
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repository.GetUser(id);
             var userToReturn =  _mapper.Map<UserForDetailed>(user);
             return Ok(userToReturn);
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UserForUpdate userForUpdate)
         {
@@ -59,5 +60,6 @@ namespace DatingApp.API.Controllers
            
         }
 
+        
     }
 }
