@@ -41,6 +41,7 @@ namespace DatingApp.API
             // creating repo as a service to be consumed by our application
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
+            
 
             // creating Authentication Middleware: Authentication Scheme to Protect controllers
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -54,6 +55,7 @@ namespace DatingApp.API
                     ValidateAudience = false
                 };
             });
+            services.AddScoped<LogUserActivity>();
 
         }
 
